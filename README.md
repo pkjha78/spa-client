@@ -2,6 +2,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+### To be installed
+npm install node-sass
+npm install bootstrap
+npm install react-feather
+npm install react-fontawesome
+npm install react-router-dom
+npm install reactstrap
+npm install axios react-data-table-component
+npm install react-localization
+npm install styled-components
+
+
 In the project directory, you can run:
 
 ### `npm start`
