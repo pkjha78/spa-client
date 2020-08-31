@@ -41,7 +41,7 @@ const SoundSection = props => {
     <>
       <Row>
         <Col sm="10" />
-        <Col sm="2"><Button color="primary"onClick={() => props.addSoundSection}><i className="fa fa-check"></i>&nbsp;Add</Button></Col>
+        <Col sm="2"><Button color="primary"onClick={() => props.showHideAddSection}><i className="fa fa-check"></i>&nbsp;Add</Button></Col>
       </Row>
       <DataTable
         title="All Verification Request"

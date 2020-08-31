@@ -41,11 +41,11 @@ class Sounds extends Component {
           console.error("No case selected");
     }
   };
-  addSoundSection = props => {
+  addSoundSection () {
     console.log("Inside addSection..");
   };
   render(){
-    const { showHideListSection, showHideAddSection, showHideEditSection } = this.props;
+    const { showHideListSection, showHideAddSection, showHideEditSection} = this.props;
     return(
       <>
           <div>
