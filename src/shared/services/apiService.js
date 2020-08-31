@@ -56,10 +56,28 @@ export const getAllUsers = () => {
   return requestHandler(API_DETAILS);
 };
 
+export const putUserBlocked = (id, reqPayload) => {
+  const API_DETAILS = {
+    url: `/users/${id}`,
+    method: "put",
+    data: reqPayload
+  };
+  return requestHandler(API_DETAILS);
+};
+
 export const getAllVerifications = () => {
   const API_DETAILS = {
     url: `/verifications`,
     method: "get"
+  };
+  return requestHandler(API_DETAILS);
+};
+
+export const putVerifications = (id, reqPayload) => {
+  const API_DETAILS = {
+    url: `/verifications/${id}`,
+    method: "put",
+    data: reqPayload
   };
   return requestHandler(API_DETAILS);
 };

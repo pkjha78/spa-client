@@ -5,6 +5,7 @@ let strings = getLocalizedStrings({
     id: "Id",
     name: "Name",
     username: "User Name",
+    verified: "Verified Status",
     device: "Device",
     created: "Created",
     action: "Action"

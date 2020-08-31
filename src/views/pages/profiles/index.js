@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import translation from './translation';
-import {getAllVerifications} from "../../../shared/services/apiService";
+import {getAllVerifications, putVerifications} from "../../../shared/services/apiService";
 import DataTable from 'react-data-table-component';
 import { Button } from 'reactstrap';
 
@@ -18,6 +18,11 @@ const Profiles = props => {
 
   useEffect(() => {
   //  props.onClear();
+    _getVerification();
+
+  }, []);
+
+  const _getVerification = () => {
     getAllVerifications().then(res => {
       if(res && res.data){
         res.data = res.data.map(item => ({
@@ -28,13 +33,13 @@ const Profiles = props => {
     }).catch(err => {
       props.onError(err, "Error while fetching user's Profile Verification details");
     });
-  }, []);
+  };
 
   const populateActions = row => {
-    if(!row.verified){
-      return <Button color="danger" onClick={() => onVerActionClick(row)}><i className="fa fa-ban"></i>&nbsp;Verified</Button>
+    if(row.verified){
+      return <Button color="success" onClick={() => onVerActionClick(row)}><i className="fa fa-check"></i>&nbsp;Verified</Button>
     }else{
-      return <Button color="success" onClick={() => onUnVerActionClick(row)}><i className="fa fa-user"></i>&nbsp;Unverified</Button>
+      return <Button color="danger" onClick={() => onUnVerActionClick(row)}><i className="fa fa-ban"></i>&nbsp;Unverified</Button>
     }
   }
 
@@ -48,10 +53,29 @@ const Profiles = props => {
 
   const onVerActionClick = (row) => {
     //alert(row.blocked);
-    console.log("verified"+row.verified)
+    console.log("verified" + row.verified)
+    const reqObj = {
+      "verified": false
+    };
+    putVerifications(row.id, reqObj).then(res => {
+        //scrollToTop();
+        _getVerification();
+    }).catch(err => {
+        //this.errorHandler(err, "error in put verification");
+        console.error("Error in put verification: " + err);
+    })
   }
   const onUnVerActionClick = (row) => {
-    console.log("Row:" + row.verified);
+    console.log("verified" + row.verified)
+    const reqObj = {
+      "verified": true
+    };
+    putVerifications(row.id, reqObj).then(res => {
+        _getVerification();
+    }).catch(err => {
+        //this.errorHandler(err, "error in put verification");
+        console.error("Error in put verification: " + err);
+    })
   }
   return(
     <DataTable
