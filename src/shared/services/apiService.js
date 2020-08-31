@@ -115,5 +115,43 @@ export const getAllAudios = () => {
   return requestHandler(API_DETAILS);
 };
 
+export const getDiscoverySections = () => {
+  const API_DETAILS = {
+    url: `/discovery`,
+    method: "get"
+  };
+  return requestHandler(API_DETAILS);
+};
+
+export const putDiscoverySections = (id, reqPayload) => {
+  const API_DETAILS = {
+    url: `/discovery/${id}`,
+    method: "put",
+    data: reqPayload
+  };
+  return requestHandler(API_DETAILS);
+};
+export const postDiscoverySections = (reqPayload) => {
+  const API_DETAILS = {
+    url: `/discovery`,
+    method: "post",
+    data: reqPayload
+  };
+  return requestHandler(API_DETAILS);
+};
+export const getDiscoverySectionsById = (id) => {
+  const API_DETAILS = {
+    url: `/discovery/${id}`,
+    method: "get"
+  };
+  return requestHandler(API_DETAILS);
+};
+export const deleteDiscoverySections = (id) => {
+  const API_DETAILS = {
+    url: `/discovery/${id}`,
+    method: "delete"
+  };
+  return requestHandler(API_DETAILS);
+};
 
 export default { uploadVideo, uploadAudio };
