@@ -44,7 +44,7 @@ const Profiles = props => {
   }
 
   const populateBlocked = row => {
-    if(!row.verified){
+    if(row.verified){
       return <div>Unblocked</div>
     }else{
       return <div><b>Blocked</b></div>
