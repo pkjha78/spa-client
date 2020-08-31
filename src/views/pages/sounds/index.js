@@ -5,6 +5,8 @@ import ListSection from './ListSection';
 import AddSection from './AddSection';
 import EditSection from './EditSection';
 import ListFile from './ListFile';
+import SoundSection from './Section';
+
 
 class Sounds extends Component {
   constructor() {
@@ -89,31 +91,7 @@ class Sounds extends Component {
               <ListFile />
             </TabPane>
             <TabPane tabId="2">
-              {
-                !showHideListSection &&
-                <ListSection
-                showHideAddSection={true}
-                showHideListSection={false}
-                showHideEditSection={false}
-                onAddBtnClicked={this.addSoundSection}
-                />
-              }
-              {
-                !showHideAddSection &&
-                <AddSection
-                  showHideListSection={false}
-                  showHideAddSection={true}
-                  showHideEditSection={false}
-                />
-              }
-              {
-                !showHideEditSection &&
-                <EditSection
-                  showHideListSection={false}
-                  showHideAddSection={false}
-                  showHideEditSection={true}
-                />
-              }
+              <SoundSection />
             </TabPane>
             <TabPane tabId="3">
               <Row>

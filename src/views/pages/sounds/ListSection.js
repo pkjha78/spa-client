@@ -33,15 +33,15 @@ const SoundSection = props => {
 
   const populateActions = row => {
       return <div>
-      <Button color="success" onClick={() => props.showHideListSection=false}><i className="fa fa-edit"></i>&nbsp;Edit</Button> &nbsp;
-      <Button color="danger" onClick={() => props.deleteSoundSections(row.id)}><i className="fa fa-close"></i>&nbsp;Delete</Button>
+      <Button color="success" onClick={() => props.editSection(row.id, row)}><i className="fa fa-edit"></i>&nbsp;Edit</Button> &nbsp;
+      <Button color="danger"  onClick={() => props.deleteSection(row.id)}><i className="fa fa-close"></i>&nbsp;Delete</Button>
       </div>
   }
   return(
     <>
       <Row>
         <Col sm="10" />
-        <Col sm="2"><Button color="primary"onClick={() => props.showHideAddSection}><i className="fa fa-check"></i>&nbsp;Add</Button></Col>
+        <Col sm="2"><Button color="primary"onClick={() => props.onAddition()}><i className="fa fa-check"></i>&nbsp;Add</Button></Col>
       </Row>
       <DataTable
         title="All Verification Request"

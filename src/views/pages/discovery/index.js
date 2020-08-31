@@ -84,6 +84,7 @@ class Discovery extends Component {
   }
 
   render(){
+    
     let discoveryForm;
     if(this.state.isAddDiscovery || this.state.isEditDiscovery) {
       discoveryForm = <AddDiscovery onFormSubmit={this.onFormSubmit} discovery={this.state.discovery} />
