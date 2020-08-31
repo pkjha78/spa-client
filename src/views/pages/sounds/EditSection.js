@@ -9,13 +9,13 @@ return(
     <Col md={{ size: 8, offset: 2 }}>
       <Card>
         <CardHeader>
-          Update Sound Section
+          <h2>Edit Sound Section</h2>
         </CardHeader>
         <CardBody>
           <Form>
             <FormGroup>
               <Label for="name">Name</Label>
-              <Input type="text" name="name" id="name" placeholder="First and Last" />
+              <Input type="text" name="name" id="name" placeholder="Section name" />
             </FormGroup>
             <Button color="success"><i className="fa fa-check"></i>&nbsp;Update Sound Section</Button>
           </Form>

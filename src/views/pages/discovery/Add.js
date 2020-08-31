@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import translation from './translation';
 import {getDiscoverySections, postDiscoverySections, deleteDiscoverySections} from "../../../shared/services/apiService";
 import DataTable from 'react-data-table-component';
-import { Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Row, Col, Form, FormGroup, Label, Input, Button, Card, CardHeader, CardBody  } from 'reactstrap';
 
 class AddDiscovery extends Component {
   constructor(props) {
@@ -35,6 +35,7 @@ class AddDiscovery extends Component {
     this.setState(this.initialState);
   }
   render(){
+    const {discovery} = this.props;
     let pageTitle;
     if(this.state.id) {
       pageTitle = <h2>Edit Discovery Section</h2>
@@ -43,25 +44,31 @@ class AddDiscovery extends Component {
     }
     return(
       <>
-      {pageTitle}
       <Row>
         <Col md={{ size: 8, offset: 2 }}>
-          <Form onSubmit={this.handleSubmit}>
-            <FormGroup controlId="name">
-              <Label>Discovery Section Name</Label>
-              <Input
-                type="text"
-                name="name"
-                value={this.state.name}
-                onChange={this.handleChange}
-                placeholder="Discovery Section Name"/>
-            </FormGroup>
-            <FormGroup>
-              <Input type="hidden" name="id" value={this.state.id} />
-              <Button color="success" type="submit">Save</Button>
-            </FormGroup>
-          </Form>
-        </Col>
+          <Card>
+            <CardHeader>
+              {pageTitle}
+            </CardHeader>
+            <CardBody>
+              <Form onSubmit={this.handleSubmit}>
+                <FormGroup controlId="name">
+                  <Label>Discovery Section Name</Label>
+                  <Input
+                    type="text"
+                    name="name"
+                    value={this.state.name}
+                    onChange={this.handleChange}
+                    placeholder="Discovery Section Name"/>
+                </FormGroup>
+                <FormGroup>
+                  <Input type="hidden" name="id" value={this.state.id} />
+                  <Button color="success" type="submit">Save</Button>
+                </FormGroup>
+              </Form>
+              </CardBody>
+            </Card>
+          </Col>
       </Row>
       </>
     )
