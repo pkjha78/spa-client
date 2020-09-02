@@ -48,7 +48,7 @@ export default {
   bottom: [
     {
       name: 'Logout',
-      url: '/dashboard',
+      url: '/logout',
       icon: 'User',
     },
   ],

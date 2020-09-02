@@ -7,6 +7,7 @@ import nav from '../_nav';
 import routes from '../views';
 import ContextProviders from '../ui/components/utilities/ContextProviders';
 import handleKeyAccessibility, { handleClickAccessibility } from '../ui/helpers/handleTabAccessibility';
+import store from 'store';
 
 const MOBILE_SIZE = 992;
 
@@ -17,6 +18,7 @@ export default class DashboardLayout extends Component {
       sidebarCollapsed: false,
       isMobile: window.innerWidth <= MOBILE_SIZE,
       showChat1: true,
+      isLogedIn: store.get('loggedIn'),
     };
   }
 
@@ -53,7 +55,7 @@ export default class DashboardLayout extends Component {
   };
 
   render() {
-    const { sidebarCollapsed } = this.state;
+    const { sidebarCollapsed, isLogedIn } = this.state;
     const sidebarCollapsedClass = sidebarCollapsed ? 'side-menu-collapsed' : '';
     return (
       <ContextProviders>
@@ -82,13 +84,21 @@ export default class DashboardLayout extends Component {
                   {routes.map((page, key) => (
                     <Route path={page.path} component={page.component} key={key} />
                   ))}
-                  <Redirect from="/" to="/home" />
+                  {isLogedIn ? (
+                    <Redirect from="/" to="/home" />
+                  ): (
+                    <Redirect from="/" to="/login" />
+                  )}
+                  {!isLogedIn &&
+                    <Redirect from="/home" to="/login" />
+                  }
+
                 </Switch>
               </PageContent>
             </Page>
           </div>
           <Footer>
-            <span>Copyright © 2019-2020 Admin Dashboard. All rights reserved.</span>
+            <span>Copyright © 2020 Admin Dashboard. All rights reserved.</span>
             <span>
               <a href="#!">Terms</a> | <a href="#!">Privacy Policy</a>
             </span>
@@ -118,7 +128,7 @@ function HeaderNav() {
       </NavItem>
       <UncontrolledDropdown nav inNavbar>
         <DropdownToggle nav>
-          <Avatar size="small" color="blue" initials="JS" />
+          <Avatar size="small" color="blue" initials="PJ" />
         </DropdownToggle>
         <DropdownMenu right>
           <DropdownItem>Edit Profile</DropdownItem>

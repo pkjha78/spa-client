@@ -12,7 +12,8 @@ npm install reactstrap
 npm install axios react-data-table-component
 npm install react-localization
 npm install styled-components
-
+npm install store // to save tmp login flag
+npm install redux redux-thunk react-redux
 
 In the project directory, you can run:
 

@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import classnames from 'classnames';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
-import ListSection from './ListSection';
-import AddSection from './AddSection';
-import EditSection from './EditSection';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
 import ListFile from './ListFile';
 import SoundSection from './Section';
 
@@ -13,9 +10,6 @@ class Sounds extends Component {
     super();
     this.state = {
       activeTab: '1',
-      showHideListSection: false,
-      showHideAddSection: false,
-      showHideEditSection: false,
     };
     this.hideComponent = this.hideComponent.bind(this);
     this.toggle = this.toggle.bind(this);
@@ -47,7 +41,7 @@ class Sounds extends Component {
     console.log("Inside addSection..");
   };
   render(){
-    const { showHideListSection, showHideAddSection, showHideEditSection} = this.props;
+    
     return(
       <>
           <div>

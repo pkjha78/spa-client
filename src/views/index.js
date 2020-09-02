@@ -4,7 +4,9 @@ import Profiles from './pages/profiles';
 import Sounds from './pages/sounds';
 import Videos from './pages/videos';
 import Discovery from './pages/discovery';
-import ChangePassword from './pages/ChangePassword';
+import ChangePassword from './pages/admin/ChangePassword';
+import Logout from './pages/admin/Logout';
+
 
 // See React Router documentation for details: https://reacttraining.com/react-router/web/api/Route
 const pageList = [
@@ -42,6 +44,11 @@ const pageList = [
     name: 'Change Password',
     path: '/password',
     component: ChangePassword,
+  },
+  {
+    name: 'Logout',
+    path: '/logout',
+    component: Logout,
   },
 ];
 
