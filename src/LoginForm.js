@@ -65,7 +65,7 @@ const LoginForm = props => {
                         </div>
                     </div>
                     {error && <><small sytle={{color: 'red'}}>That username/password is incorrect. Try again!</small><br /></>}
-                    <button type="submit" className="btn btn-primary btn-lg btn-login center-block">Log In</button>
+                    <button type="submit" className="btn btn-primary btn-log btn-lg btn-login center-block">Log In</button>
                     <div className="clearfix"></div>
                 </form>
                   <p className="text-center panel__login__footer">91.866.663.2228 or <a href="mailto:Support@example.com">Support@example.com</a></p>

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import translation from './translation';
-import {getDiscoverySections, putDiscoverySections, deleteDiscoverySections} from "../../../shared/services/apiService";
+import {getDiscoverySections, deleteDiscoverySections} from "../../../shared/services/apiService";
 import DataTable from 'react-data-table-component';
-import { Row, Col, Form, FormGroup, Input, Button } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 class ListDiscovery extends Component {
   constructor() {
@@ -30,7 +30,6 @@ class ListDiscovery extends Component {
     console.log("onDelete");
   }
   deleteDiscovery(id){
-    const { discovery } = this.state;
     console.log("delete Discovery: " + id);
     deleteDiscoverySections(id).then(res => {
 
@@ -55,7 +54,7 @@ class ListDiscovery extends Component {
     });
   }
   render(){
-    const { error, discovery} = this.state;
+    const { discovery} = this.state;
     return(
       <>
         <DataTable

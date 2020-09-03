@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import translation from './translation';
-import {getDiscoverySections, postDiscoverySections, deleteDiscoverySections} from "../../../shared/services/apiService";
-import DataTable from 'react-data-table-component';
 import { Row, Col, Form, FormGroup, Label, Input, Button, Card, CardHeader, CardBody  } from 'reactstrap';
 
 class AddDiscovery extends Component {
@@ -35,7 +32,6 @@ class AddDiscovery extends Component {
     this.setState(this.initialState);
   }
   render(){
-    const {discovery} = this.props;
     let pageTitle;
     if(this.state.id) {
       pageTitle = <h2>Edit Discovery Section</h2>

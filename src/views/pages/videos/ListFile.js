@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Progress, Card, CardBody, CardHeader, CardFooter, Row, Col } from 'reactstrap';
+import { Card, CardBody, CardHeader, Row, Col } from 'reactstrap';
 import UploadService, {getAllVideos} from "../../../shared/services/apiService";
 
 const ListFile = props => {

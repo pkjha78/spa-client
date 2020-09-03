@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import translation from './translation';
 import {getDiscoverySections, getDiscoverySectionsById, putDiscoverySections, postDiscoverySections} from "../../../shared/services/apiService";
-import DataTable from 'react-data-table-component';
-import { Row, Col, Form, FormGroup, Input, Button, Alert } from 'reactstrap';
+import { Row, Col, Button, Alert } from 'reactstrap';
 import ListDiscovery from './List';
 import AddDiscovery from './Add';
 
@@ -84,7 +82,7 @@ class Discovery extends Component {
   }
 
   render(){
-    
+
     let discoveryForm;
     if(this.state.isAddDiscovery || this.state.isEditDiscovery) {
       discoveryForm = <AddDiscovery onFormSubmit={this.onFormSubmit} discovery={this.state.discovery} />
@@ -95,7 +93,7 @@ class Discovery extends Component {
           <Row>
             <Col md="10" />
             <Col md="2">
-              <Button color="primary" onClick={() => this.onCreate()}>Add Discovery</Button>
+              <Button color="primary" onClick={() => this.onCreate()}><i className="fa fa-plus"></i>&nbsp;Add Discovery</Button>
             </Col>
           </Row>
         }

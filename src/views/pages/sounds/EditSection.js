@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText, Col, Row, Card, CardHeader, CardBody } from 'reactstrap';
+import React from 'react';
+import { Button, Form, FormGroup, Label, Input, Col, Row, Card, CardHeader, CardBody } from 'reactstrap';
 
 
 const EditSection = props => {

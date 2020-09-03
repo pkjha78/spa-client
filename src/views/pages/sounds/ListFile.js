@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Progress, Card, CardBody, CardHeader, CardFooter, Row, Col } from 'reactstrap';
+import { Card, CardBody, CardHeader, Row, Col, Button } from 'reactstrap';
 import UploadService, {getAllAudios} from "../../../shared/services/apiService";
 
 const ListFile = props => {
@@ -75,13 +75,13 @@ const ListFile = props => {
         <input type="file" onChange={selectFile} />
       </label>
 
-      <button
-        className="btn btn-success"
+      <Button
+        color="success"
         disabled={!selectedFiles}
         onClick={upload}
       >
         Upload
-      </button>
+      </Button>
 
       <div className="alert alert-light" role="alert">
         {message}
