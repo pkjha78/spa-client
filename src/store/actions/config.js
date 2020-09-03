@@ -1,7 +1,8 @@
 import {
   IS_AUTHENTICATED,
   SET_ALERT,
-  SET_TOKEN
+  SET_TOKEN,
+  ALERT_TYPE
 } from './actionTypes';
 
 export const setToken = data => ({type: SET_TOKEN, data});
@@ -12,3 +13,5 @@ export const clearAlert = () => ({
   type: SET_ALERT,
   data: {msg: '', msgList: [], type: '', show: false, dismissible: false}
 });
+
+export const success = message => ({ type: ALERT_TYPE.SUCCESS, message });

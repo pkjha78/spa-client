@@ -1,15 +1,24 @@
 import { instance as axios } from "./baseService";
-
+import store from "../../store/store";
+import {isAuthenticated, setToken} from "../../store/actions/config";
+import db from 'store';
 
 const requestHandler =(reqDetails, isRetry =true) => {
   console.log(reqDetails);
   return new Promise((resolve, reject) => {
     axios(reqDetails).then(res => {
       console.log(res);
+      if(db.get('loggedIn')){
+        store.dispatch(isAuthenticated(true));
+        store.dispatch(setToken("$2a$10$QDKJVybbdQiqLS4LMJhEcOLdBdW458VB0..B.qIFmaFyDGpm.yTlS"));
+      }else{
+        store.dispatch(isAuthenticated(false));
+      }
       resolve(res);
     }).catch(err => {
-      if(err.response && err.response.status === 401 && isRetry){
+      if(err.response && isRetry){
         console.log("Unauthorised access");
+        store.dispatch(isAuthenticated(false));
       } else{
         console.error(err);
         reject(err);
@@ -39,6 +48,8 @@ const uploadAudio = (file, onUploadProgress) => {
     onUploadProgress,
   });
 };
+
+
 
 export const getUserById = () => {
   const API_DETAILS = {

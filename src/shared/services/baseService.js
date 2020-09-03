@@ -1,6 +1,9 @@
 import axios from 'axios';
-import { SERVICE_URL } from "../constants";
+import { SERVICE_URL, SSO_TOKEN_URL } from "../constants";
 
+export const ssoInstance = axios.create({url: SSO_TOKEN_URL, method: 'get', payload:{"email": "admin@admin.com", "password": "123456"}});
+
+export const getSSO = () =>ssoInstance();
 export const instance = axios.create({
   baseURL: SERVICE_URL,
   headers:{
